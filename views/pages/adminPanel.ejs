@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="/styles/adminPanel.css">
+</head>
+<body>
+    <h1>This is Admin Page</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Phone</th>
+                <th>Registration Date</th>
+                <th>Admin Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(function(user) { %>
+                <tr>
+                    <td><%= user.username %></td>
+                    <td><%= user.phone %></td>
+                    <td>
+                        <%= new Date(user.registrationDate).toLocaleDateString() %>
+                        <%= new Date(user.registrationDate).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) %>
+                    </td>
+                    <td class="admin-status">
+                        <% if (user.isAdmin) { %>
+                            <span class="admin-yes">✓</span>
+                        <% } else { %>
+                            <span class="admin-no">✗</span>
+                        <% } %>
+                    </td>
+                    <td>
+                        <a href="#" class="edit-link" data-user-id="<%= user._id %>">Edit</a> |
+                        <a href="/confirmDelete/<%= user._id %>">Delete</a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <a href="/addUser">Add User</a>
+
+</body>
+</html>
