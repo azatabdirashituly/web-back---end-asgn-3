@@ -14,6 +14,7 @@
                 <th>Username</th>
                 <th>Phone</th>
                 <th>Registration Date</th>
+                <th>Last Active</th>
                 <th>User ID</th>
                 <th>Admin Status</th>
             </tr>
@@ -26,6 +27,10 @@
                     <td>
                         <%= new Date(user.registrationDate).toLocaleDateString() %>
                         <%= new Date(user.registrationDate).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) %>
+                    </td>
+                    <td>
+                        <%= new Date(user.lastActive).toLocaleDateString() %>
+                        <%= new Date(user.lastActive).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) %>
                     </td>
                     <td>
                         <%= user._id %>

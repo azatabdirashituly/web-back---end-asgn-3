@@ -27,7 +27,8 @@ const controller = {
             username: username,
             phone: phone,
             password: hashedPassword,
-            registrationDate: new Date()
+            registrationDate: new Date(),
+            lastActive: new Date()
         });
         await newUser.save();
         res.redirect('/login')
@@ -46,6 +47,8 @@ const controller = {
 
         const user = await User.findOne({username});
         if (user && bcrypt.compareSync(password, user.password)) {
+            user.lastActive = new Date();
+            await user.save();
             res.redirect('/main')
         } else {
             res.status(400).json({message: 'Username or password is incorrect'});
@@ -57,9 +60,12 @@ const controller = {
 
     getAdminPage: async (req, res) => {
         const users = await User.find({})
+        users.forEach(user => {
+            user.registrationDate = user.registrationDate.toLocaleString('en-US', {timeZone: 'Asia/Almaty'})
+            user.lastActive = user.lastActive.toLocaleString('en-US', {timeZone: 'Asia/Almaty'})
+        })
         await res.render('pages/adminPanel', {users: users})
     },
-
 }
 
 module.exports = {User, controller}
