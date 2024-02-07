@@ -58,7 +58,6 @@ const controller = {
 
     getAdminPage: async (req, res) => {
         const users = await User.find({})
-        console.log(users)
         await res.render('pages/adminPanel', {users: users})
     },
 
