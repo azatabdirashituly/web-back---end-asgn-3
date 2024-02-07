@@ -27,6 +27,28 @@ const adminController = {
         res.redirect('/adminPage')
     },
 
+    deleteUser: async (req, res) => {
+        const { username } = req.body;
+        const userExist = await User.findOne({username});
+        if (!userExist) { 
+            res.status(400).json({message: `User doesn't exist`});
+            return;
+        }
+        await User.findOneAndDelete({username: username})
+        res.redirect('/adminPage')
+    },
+
+    deleteUserById: async (req, res) => {
+        const { id } = req.body;
+        const userExist = await User.findOne({_id: id});
+        if (!userExist) { 
+            res.status(400).json({message: `User doesn't exist`});
+            return;
+        }
+        await User.findOneAndDelete({_id: id})
+        res.redirect('/adminPage')
+    }
+
 };
 
 module.exports = { adminController }
