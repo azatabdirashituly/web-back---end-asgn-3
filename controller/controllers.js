@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const MONGO_URL = 'mongodb+srv://azatabdirashituly:20feb2005@cluster0.sellypx.mongodb.net/'
-mongoose.connect(MONGO_URL)
+const MONGO_URI = 'mongodb+srv://azatabdirashituly:20feb2005@cluster0.sellypx.mongodb.net/'
+mongoose.connect(MONGO_URI)
     .then(() => console.log('Connected to MongoDB'))
     .catch((err) => console.log(`Couldn't connect ${err}`));
 
