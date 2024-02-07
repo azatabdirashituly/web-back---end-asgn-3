@@ -14,8 +14,8 @@
                 <th>Username</th>
                 <th>Phone</th>
                 <th>Registration Date</th>
+                <th>User ID</th>
                 <th>Admin Status</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,22 +27,27 @@
                         <%= new Date(user.registrationDate).toLocaleDateString() %>
                         <%= new Date(user.registrationDate).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) %>
                     </td>
+                    <td>
+                        <%= user._id %>
+                    </td>
                     <td class="admin-status">
                         <% if (user.isAdmin) { %>
-                            <span class="admin-yes">✓</span>
+                            <span class="admin-yes">Admin</span>
                         <% } else { %>
-                            <span class="admin-no">✗</span>
+                            <span class="admin-no">User</span>
                         <% } %>
-                    </td>
-                    <td>
-                        <a href="#" class="edit-link" data-user-id="<%= user._id %>">Edit</a> |
-                        <a href="/confirmDelete/<%= user._id %>">Delete</a>
                     </td>
                 </tr>
             <% }); %>
         </tbody>
-    </table>
-    <a href="/addUser">Add User</a>
+    </table>    
+    <form action="/addUser" method="post" class="add-user-form">
+        <h2>Add New User</h2>
+        <input name="username" type="text" placeholder="Username" required>
+        <input name="phone" type="text" placeholder="Phone number" required>
+        <input name="password" type="password" placeholder="Password" required>
+        <button type="submit">Add User</button>
+    </form>
 
 </body>
 </html>

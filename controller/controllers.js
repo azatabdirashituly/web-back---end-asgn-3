@@ -1,9 +1,6 @@
-const mongoose = require('mongoose');
+const { User } = require('../database/userSchema') 
 const bcrypt = require('bcrypt');
 
-
-const userSchema = new mongoose.Schema({username: String, phone: String, password: String, registrationDate: Date});
-const User = mongoose.model('User', userSchema, 'users');
 
 const controller = {
 
@@ -15,6 +12,11 @@ const controller = {
         const { username, phone, password, repassword } = req.body;
         if (password!== repassword) {
             res.status(400).json({message: 'Passwords do not match'});
+        }
+        const phoneExist = await User.findOne({phone});
+        if (phoneExist) { 
+            res.status(400).json({message: 'Phone number already registered'});
+            return;
         }
         if (await User.findOne({username})) { 
             res.status(400).json({message: 'Username already taken'});

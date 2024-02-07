@@ -56,3 +56,38 @@ a:hover {
     padding: 20px;
     border-radius: 8px;
 }
+
+.add-user-form {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 300px;
+}
+
+.add-user-form h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.add-user-form input[type="text"],
+.add-user-form input[type="password"],
+.add-user-form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.add-user-form button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.add-user-form button:hover {
+    background-color: #0056b3;
+}

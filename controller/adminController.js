@@ -1,38 +1,32 @@
 // controller.js
-const mongoose = require('mongoose');
-
 const { User } = require('../controller/controllers');
+const bcrypt = require('bcrypt');
 
 const adminController = {
-    getAdminPage: async (req, res) => {
-        const users = await User.find();
-        res.render('adminPage', { users });
-    },
 
     addUser: async (req, res) => {
-        // Handle adding a new user to the database
-        // Redirect back to the admin page
+        const { username, phone, password } = req.body;
+        const userExist = await User.findOne({username});
+        if (userExist) { 
+            res.status(400).json({message: 'Username already taken'});
+            return;
+        }
+        const phoneExist = await User.findOne({phone});
+        if (phoneExist) { 
+            res.status(400).json({message: 'Phone number already registered'});
+            return;
+        }
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newUser = new User({
+            username: username,
+            phone: phone,
+            password: hashedPassword,
+            registrationDate: new Date()
+        })
+        await newUser.save();
+        res.redirect('/adminPage')
     },
 
-    getEditUserPage: async (req, res) => {
-        // Retrieve user data by ID and display an edit form
-        res.render('editUserPage', { user });
-    },
-
-    updateUser: async (req, res) => {
-        // Handle updating user data in the database
-        // Redirect back to the admin page
-    },
-
-    getConfirmDeletePage: async (req, res) => {
-        // Display a confirmation prompt to delete a user
-        res.render('confirmDeletePage', { user });
-    },
-
-    deleteUser: async (req, res) => {
-        // Handle deleting a user from the database
-        // Redirect back to the admin page
-    }
 };
 
-module.exports = adminController;
+module.exports = { adminController }

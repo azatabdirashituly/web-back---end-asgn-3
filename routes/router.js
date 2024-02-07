@@ -9,6 +9,8 @@ router.post('/getDataFromReg', controller.register)
 router.get('/login', controller.getLoginPage)
 router.post('/getDataFromLog', controller.login)
 router.get('/main', controller.getMainPage)
+
 router.get('/adminPage', controller.getAdminPage)
+router.post('/addUser', adminController.addUser)
 
 module.exports = router;
