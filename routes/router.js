@@ -13,6 +13,6 @@ router.get('/main', controller.getMainPage)
 router.get('/adminPage', controller.getAdminPage)
 router.post('/addUser', adminController.addUser)
 router.post('/deleteUser', adminController.deleteUser)
-router.post('/deleteUserById', adminController.deleteUser)
+router.post('/editUser', adminController.editUser)
 
 module.exports = router;

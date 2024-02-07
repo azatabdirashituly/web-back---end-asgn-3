@@ -6,8 +6,8 @@ const adminController = {
 
     addUser: async (req, res) => {
         const { username, phone, password } = req.body;
-        const userExist = await User.findOne({username});
-        if (userExist) { 
+        const user = await User.findOne({username});
+        if (user) { 
             res.status(400).json({message: 'Username already taken'});
             return;
         }
@@ -29,8 +29,8 @@ const adminController = {
 
     deleteUser: async (req, res) => {
         const { username } = req.body;
-        const userExist = await User.findOne({username});
-        if (!userExist) { 
+        const user = await User.findOne({username});
+        if (!user) { 
             res.status(400).json({message: `User doesn't exist`});
             return;
         }
@@ -40,13 +40,35 @@ const adminController = {
 
     deleteUserById: async (req, res) => {
         const { id } = req.body;
-        const userExist = await User.findOne({_id: id});
-        if (!userExist) { 
+        const user = await User.findOne({_id: id});
+        if (!user) { 
             res.status(400).json({message: `User doesn't exist`});
             return;
         }
         await User.findOneAndDelete({_id: id})
         res.redirect('/adminPage')
+    },
+
+    editUser: async (req, res) => {
+        const { username, newUsername, newPhone, newPassword } = req.body;
+        const user = await User.findOne({username});
+        if (!user) { 
+            res.status(400).json({message: `User doesn't exist`});
+            return;
+        }
+        if (newUsername) {
+            user.username = newUsername;
+        }
+        if (newPhone) {
+            user.phone = newPhone;
+        }
+        if (newPassword) {
+            const hashedPassword = await bcrypt.hash(newPassword, 10);
+            user.password = hashedPassword;
+        }
+
+        await user.save();
+        res.redirect('/adminPage')  
     }
 
 };
