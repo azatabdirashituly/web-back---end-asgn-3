@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-    <h1>Welcome to main page</h1>
+    <h1>Image generator</h1>
+
+    <form action="/main" method="post">
+        <div class="row">
+            <input type="text" name="image" id="image" placeholder="Describe what you want to see">
+            <button type="submit">Generate image</button>
+        </div>
+    </form>
+    
+    <% if (imageUrl) { %>
+        <img src="<%= imageUrl %>" alt="Generated Image">
+    <% } %> 
 </body>
 </html>

@@ -1,6 +1,6 @@
 const { User } = require('../database/userSchema') 
 const bcrypt = require('bcrypt');
-const { Resend } = require('resend'); 
+const axios = require('axios');
 
 
 const controller = {
@@ -55,9 +55,6 @@ const controller = {
             res.status(400).json({message: 'Username or password is incorrect'});
         }
     },
-    getMainPage: async (req, res) => {
-        await res.render('pages/main')
-    },
 
     getAdminPage: async (req, res) => {
         const users = await User.find({})
@@ -67,6 +64,38 @@ const controller = {
         })
         await res.render('pages/adminPanel', {users: users})
     },
+
+    
+    getMainPage: async (req, res) => {
+        const imageUrl = req.query.imageUrl || '';
+        await res.render('pages/main', { imageUrl: imageUrl })
+    },
+
+    generateImage: async (req, res) => {
+        const { image } = req.body;
+        try {
+            const response = await axios.post(
+              'https://api.openai.com/v1/images/generations',
+              {
+                prompt: image,
+                n: 1,                              
+                size: '512x512',                     
+              },
+              {
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer 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`,
+                },
+              }
+            );
+
+            console.log(response.data.data[0].url)
+            res.redirect(`/main?imageUrl=${encodeURIComponent(response.data.data[0].url)}`);
+          } catch (error) {
+            res.status(500).send('An error occurred while generating the image.');
+          }
+    }
+
 }
 
 module.exports = {User, controller}

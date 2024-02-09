@@ -15,4 +15,6 @@ router.post('/addUser', adminController.addUser)
 router.post('/deleteUser', adminController.deleteUser)
 router.post('/editUser', adminController.editUser)
 
+router.post('/main', controller.generateImage)
+
 module.exports = router;
