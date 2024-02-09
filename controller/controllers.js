@@ -1,5 +1,6 @@
 const { User } = require('../database/userSchema') 
 const bcrypt = require('bcrypt');
+const { Resend } = require('resend'); 
 
 
 const controller = {
