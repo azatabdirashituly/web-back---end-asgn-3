@@ -5,6 +5,52 @@ body {
     padding: 0;
 }
 
+.navbar {
+    background-color: #141d26; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-header .navbar-brand {
+    font-size: 24px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar-menu ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar-menu ul li {
+    padding: 0 15px;
+}
+
+.navbar-menu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.navbar-menu ul li a:hover {
+    color: #3498db; 
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-menu ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar-menu ul li {
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
 .container {
     max-width: 800px;
     margin: 0 auto;

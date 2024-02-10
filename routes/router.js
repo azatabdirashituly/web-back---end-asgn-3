@@ -9,8 +9,12 @@ router.post('/getDataFromReg', controller.register)
 router.get('/login', controller.getLoginPage)
 router.post('/getDataFromLog', controller.login)
 router.get('/main', controller.getMainPage)
-router.post('/main', controller.generateImage)
 router.get('/adminPage', controller.getAdminPage)
+router.post('/main', controller.generateImage)
+
+//weather app routes
+router.get('/weatherApp', controller.getWeatherPage)
+router.post('/weather', controller.getWeatherData)
 
 router.post('/addUser', adminController.addUser)
 router.post('/deleteUser', adminController.deleteUser)
