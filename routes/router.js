@@ -16,5 +16,7 @@ router.post('/deleteUser', adminController.deleteUser)
 router.post('/editUser', adminController.editUser)
 
 router.post('/main', controller.generateImage)
+router.get('/deletedUsers', adminController.getDeletedUsers)
+router.get('/lastActive', adminController.getlastActive)
 
 module.exports = router;

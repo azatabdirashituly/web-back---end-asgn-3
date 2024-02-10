@@ -58,7 +58,7 @@ const controller = {
 
     getAdminPage: async (req, res) => {
         const users = await User.find({})
-        users.forEach(user => {
+        users.forEach(user => { 
             user.registrationDate = user.registrationDate.toLocaleString('en-US', {timeZone: 'Asia/Almaty'})
             user.lastActive = user.lastActive.toLocaleString('en-US', {timeZone: 'Asia/Almaty'})
         })

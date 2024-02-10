@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deleted users</title>
+    <link rel="stylesheet" href="/styles/adminPanel.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">ADMIN PANEL</a>
+        </div>
+        <div class="navbar-menu">
+            <ul>
+                <li><a href="/adminPage">Users</a></li>
+                <li><a href="/deletedUsers">Deleted Users</a></li>
+                <li><a href="/lastActive" style="color: #3498db;">Last Active</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="contanier">
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Last Active</th>
+                    <th>User ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% lastActive.forEach(function(user) { %>
+                    <tr>
+                        <td><%= user.username %></td>
+                        <td>
+                            <%= new Date(user.lastActive).toLocaleDateString() %>
+                            <%= new Date(user.lastActive).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) %>
+                        </td>
+                        <td>
+                            <%= user._id %>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>    
+    </div>
+    
+
+</body>
+</html>

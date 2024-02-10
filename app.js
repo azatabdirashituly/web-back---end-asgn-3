@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose')
+const router = require('./routes/router')
 require('dotenv').config();
 
 const connectDB = async () => {
@@ -13,7 +14,6 @@ const connectDB = async () => {
     }
 }
 
-const router = require('./routes/router')
 const app = express();
 const PORT = process.env.PORT || 3000;
 
