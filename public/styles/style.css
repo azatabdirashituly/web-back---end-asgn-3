@@ -26,7 +26,7 @@ body {
 .registration-form button {
     width: 100%;
     padding: 10px;
-    background-color: #c51f5d;;
+    background-color: #c51f5d;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -35,7 +35,7 @@ body {
 }
 
 .registration-form button:hover {
-    background-color: #681030;;
+    background-color: #681030;
 }
 
 .registration-form span {

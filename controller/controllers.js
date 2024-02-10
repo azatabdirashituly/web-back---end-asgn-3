@@ -1,6 +1,6 @@
 const { User } = require('../database/userSchema') 
-const bcrypt = require('bcrypt');
 const axios = require('axios');
+const bcrypt = require('bcryptjs');
 
 
 const controller = {
@@ -13,6 +13,7 @@ const controller = {
         const { username, phone, password, repassword } = req.body;
         if (password!== repassword) {
             res.status(400).json({message: 'Passwords do not match'});
+            return;
         }
         const phoneExist = await User.findOne({phone});
         if (phoneExist) { 
@@ -43,7 +44,7 @@ const controller = {
         const { username, password } = req.body;
         if (username === 'Azat' && password === 'azat') {
             res.redirect('/adminPage');
-            return;
+            return; 
         }
 
         const user = await User.findOne({username});
@@ -84,12 +85,10 @@ const controller = {
               {
                 headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': `Bearer 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`,
+                  'Authorization': `Bearer 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`,
                 },
               }
             );
-
-            console.log(response.data.data[0].url)
             res.redirect(`/main?imageUrl=${encodeURIComponent(response.data.data[0].url)}`);
           } catch (error) {
             res.status(500).send('An error occurred while generating the image.');

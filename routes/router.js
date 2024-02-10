@@ -9,13 +9,12 @@ router.post('/getDataFromReg', controller.register)
 router.get('/login', controller.getLoginPage)
 router.post('/getDataFromLog', controller.login)
 router.get('/main', controller.getMainPage)
-
+router.post('/main', controller.generateImage)
 router.get('/adminPage', controller.getAdminPage)
+
 router.post('/addUser', adminController.addUser)
 router.post('/deleteUser', adminController.deleteUser)
 router.post('/editUser', adminController.editUser)
-
-router.post('/main', controller.generateImage)
 router.get('/deletedUsers', adminController.getDeletedUsers)
 router.get('/lastActive', adminController.getlastActive)
 
