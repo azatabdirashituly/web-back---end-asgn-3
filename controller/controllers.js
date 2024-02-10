@@ -85,7 +85,7 @@ const controller = {
               {
                 headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': `Bearer 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`,
+                  'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
                 },
               }
             );
