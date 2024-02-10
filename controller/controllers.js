@@ -85,13 +85,14 @@ const controller = {
               {
                 headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': `Bearer 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`,
+                  'Authorization': `Bearer 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`,
                 },
               }
             );
             res.redirect(`/main?imageUrl=${encodeURIComponent(response.data.data[0].url)}`);
           } catch (error) {
             res.status(500).send('An error occurred while generating the image.');
+            console.log(error);
           }
     },
 
