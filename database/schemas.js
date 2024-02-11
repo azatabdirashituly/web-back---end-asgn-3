@@ -25,12 +25,26 @@ const searchedImagesSchema = new mongoose.Schema({
     date: { type: Date, default: null }
 });
 
-const SearchedImages = mongoose.model('SearchedImages', searchedImagesSchema,'searchedImages');
+const SearchedImages = mongoose.model('SearchedImages', searchedImagesSchema,'searchedImagesHistory');
 
 const movieDataSchema = new mongoose.Schema({
-    data: Object
+    title: String,
+    data: Object,
+    date: { type: Date, default: null }
 })
 
-const MovieData = mongoose.model('MovieData', movieDataSchema, 'movies' )
+const MovieData = mongoose.model('MovieData', movieDataSchema, 'moviesHistory' )
 
-module.exports = {User, DeletedUser, SearchedImages, MovieData};
+const weatherDataSchema = new mongoose.Schema({
+    city: String,
+    temp: Number,
+    feels_like: Number,
+    desciption: String,
+    humidity: Number,
+    wind_speed: Number,
+    date: { type: Date, default: null }
+});
+
+const WeatherDataCollection = mongoose.model('WeatherData', weatherDataSchema, 'weatherHistory' )
+
+module.exports = {User, DeletedUser, SearchedImages, MovieData, WeatherDataCollection};

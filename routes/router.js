@@ -20,10 +20,12 @@ router.get('/historyImage', imageController.getHistoryPage)
 // Movie routes
 router.get('/movie', movieController.getMoviePage)
 router.post('/movie', movieController.getMovieData)
+router.get('/historyMovie', movieController.getHistoryPage)
 
 // Weather app routes
 router.get('/weather', weatherController.getWeatherPage);
 router.post('/weather', weatherController.getWeatherData);
+router.get('/historyCity', weatherController.getHistoryPage)
 
 // Admin routes
 router.get('/adminPage', controller.getAdminPage);

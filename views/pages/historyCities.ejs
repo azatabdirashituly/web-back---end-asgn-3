@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of searched images</title>
+    <link rel="stylesheet" href="/styles/adminPanel.css">
+</head>
+<body>
+    <div class="contanier">
+        <table>
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Details</th>
+                    <th>Searched Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% WeatherData.forEach(function(city) { %>
+                    <tr>
+                        <td>
+                            <%= city.city %>
+                        </td>
+                        <td>
+                            <p>Temperature: <%= city.temp %> </p>
+                            <p>Feels like: <%= city.feels_like %> </p>
+                            <p>Description:  <%= city.description %> </p>
+                            <p>Humidity: <%= city.humidity %> </p>
+                            <p>Wind speed: <%= city.wind_speed %> </p>
+                        </td>
+                        <td>
+                            <%= new Date(city.date).toLocaleDateString() %>
+                            <%= new Date(city.date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) %>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>    
+    </div>
+    
+
+</body>
+</html>

@@ -25,12 +25,12 @@ const imageController = {
                 },
               }
             );
-            const newData = new SearchedImages({
+            const newImageData = new SearchedImages({
               title: image,
               url: response.data.data[0].url,
               date: new Date()
             })
-            await newData.save()
+            await newImageData.save()
             res.redirect(`/main?imageUrl=${encodeURIComponent(response.data.data[0].url)}`);
           } catch (error) {
             res.status(500).send('An error occurred while generating the image.');
