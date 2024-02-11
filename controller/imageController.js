@@ -1,4 +1,4 @@
-const { SearchedImages } = require('../database/userSchema')
+const { SearchedImages } = require('../database/schemas')
 const axios = require('axios');
 
 const imageController = {

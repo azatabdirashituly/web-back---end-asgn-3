@@ -4,6 +4,7 @@ const { controller } = require('../controller/controllers');
 const { adminController } = require('../controller/adminController');
 const { imageController } = require('../controller/imageController');
 const { weatherController } = require('../controller/weatherController');
+const { movieController } = require('../controller/movieController');
 
 // User routes
 router.get('/', controller.getRegistrationPage);
@@ -16,8 +17,12 @@ router.get('/main', imageController.getMainPage);
 router.post('/main', imageController.generateImage);
 router.get('/historyImage', imageController.getHistoryPage)
 
+// Movie routes
+router.get('/movie', movieController.getMoviePage)
+router.post('/movie', movieController.getMovieData)
+
 // Weather app routes
-router.get('/weatherApp', weatherController.getWeatherPage);
+router.get('/weather', weatherController.getWeatherPage);
 router.post('/weather', weatherController.getWeatherData);
 
 // Admin routes

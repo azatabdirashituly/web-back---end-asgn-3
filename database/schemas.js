@@ -27,4 +27,10 @@ const searchedImagesSchema = new mongoose.Schema({
 
 const SearchedImages = mongoose.model('SearchedImages', searchedImagesSchema,'searchedImages');
 
-module.exports = {User, DeletedUser, SearchedImages};
+const movieDataSchema = new mongoose.Schema({
+    data: Object
+})
+
+const MovieData = mongoose.model('MovieData', movieDataSchema, 'movies' )
+
+module.exports = {User, DeletedUser, SearchedImages, MovieData};

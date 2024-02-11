@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search Website</title>    
+    <link rel="stylesheet" href="/styles/movie.css">
+</head>
+<body>
+    <div class="wrapper">
+        <a href="/main">Go to main</a>
+        <div class="logo">
+            <div class="container">
+                <p>Movie<span>Corn.</span></p>
+            </div>
+        </div>
+        <div class="search-container">
+            <form action="/movie" method="post" class="search-element">
+                <h3>Search Movie:</h3>
+                <input name="movie" type="text" placeholder="Search Movie Title ...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    
+        <div class="movie-container">
+        <% if (movieData && movieData.Search) { %>
+            <% movieData.Search.forEach(function(movie) { %>
+                <div class="movie">
+                    <h3><%= movie.Title %></h3>
+                    <p>Year: <%= movie.Year %></p>
+                    <img src="<%= movie.Poster %>" alt="">
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p></p>
+        <% } %>
+        </div>
+               
+    </div>    
+</body>
+</html>

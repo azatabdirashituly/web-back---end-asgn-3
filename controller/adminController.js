@@ -1,4 +1,4 @@
-const { User, DeletedUser } = require('../database/userSchema') 
+const { User, DeletedUser } = require('../database/schemas') 
 const bcrypt = require('bcrypt');
 
 const adminController = {

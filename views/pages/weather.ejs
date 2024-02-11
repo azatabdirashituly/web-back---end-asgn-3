@@ -10,6 +10,7 @@
 <body>
     <div class="container">
         <div class="card">
+            <a href="/main">Back to main</a>
             <div class="search">
                 <form id="weatherForm" action="/weather" method="post">
                     <label for="cityInput"></label>
@@ -42,7 +43,7 @@
                 </div>
                 <p class="country-code"><%= weatherData.sys.country %></p>
                 <% } else { %>
-                    <p>No weather data available. Please search for a city.</p>
+                    <p></p>
                 <% } %>
             </div>
         </div>

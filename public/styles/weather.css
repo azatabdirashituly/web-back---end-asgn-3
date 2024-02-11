@@ -23,6 +23,23 @@ body {
     text-align: center;
     border-radius: 20px;
 }
+.card a {
+    display: inline-block;
+    background: #fff;
+    color: #392d91;
+    padding: 10px 20px;
+    margin-bottom: 20px; /* Spacing from the search bar or other elements */
+    border-radius: 20px; /* Rounded corners for the button */
+    text-decoration: none; /* Remove underline from the link */
+    font-weight: bold; /* Make the text bold */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+    transition: background-color 0.3s, color 0.3s; /* Transition for the hover state */
+}
+
+.card a:hover {
+    background-color: #9600ff; /* Darker background on hover */
+    color: #fff; /* White text on hover */
+}
 .search, .search form {
     display: flex;
     width: 100%;

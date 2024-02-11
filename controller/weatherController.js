@@ -1,9 +1,8 @@
-const axios = require('axios');
-
 const weatherController = {
 
     getWeatherPage: async (req, res) => {
-        await res.render('pages/weather')
+        const weatherData = req.query.weatherData ? JSON.parse(decodeURIComponent(req.query.weatherData)) : null;
+        await res.render('pages/weather', { weatherData: weatherData })
     },
 
     getWeatherData: async (req, res) => {
@@ -12,10 +11,10 @@ const weatherController = {
         const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&units=metric`;
 
         try {
-            const response = await axios.get(weatherUrl);
-            const weatherData = response.data;
+            const response = await fetch(weatherUrl);
+            const weatherData = await response.json();
             console.log(weatherData);
-            res.render('pages/weatherResult', { weatherData: weatherData });
+            res.redirect(`/weather?weatherData=${encodeURIComponent(JSON.stringify(weatherData))}`);
         } catch (error) {   
             console.error('Error:', error);
             res.status(500).send('Error fetching weather data.');

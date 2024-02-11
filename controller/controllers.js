@@ -1,4 +1,4 @@
-const { User } = require('../database/userSchema') 
+const { User } = require('../database/schemas') 
 const bcrypt = require('bcryptjs');
 
 
