@@ -19,4 +19,12 @@ const deletedUserSchema = new mongoose.Schema({
 
 const DeletedUser = mongoose.model('DeletedUser', deletedUserSchema, 'deletedUsers');
 
-module.exports = {User, DeletedUser};
+const searchedImagesSchema = new mongoose.Schema({
+    title: String,
+    url: { type: String, default: null },
+    date: { type: Date, default: null }
+});
+
+const SearchedImages = mongoose.model('SearchedImages', searchedImagesSchema,'searchedImages');
+
+module.exports = {User, DeletedUser, SearchedImages};

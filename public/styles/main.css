@@ -28,6 +28,11 @@ body {
     padding: 0 15px;
 }
 
+.navbar-menu ul li .history {
+    margin-top: 10px;
+    text-align: center;
+}
+
 .navbar-menu ul li a {
     color: #ffffff;
     text-decoration: none;

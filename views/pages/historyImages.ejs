@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of searched images</title>
+    <link rel="stylesheet" href="/styles/adminPanel.css">
+</head>
+<body>
+    <div class="contanier">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>URL</th>
+                    <th>Searched Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% searchedImages.forEach(function(searchedImage) { %>
+                    <tr>
+                        <td><%= searchedImage.title %></td>
+                        <td><%= searchedImage.url %></td>
+                        <td>
+                            <%= new Date(searchedImage.date).toLocaleDateString() %>
+                            <%= new Date(searchedImage.date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) %>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>    
+    </div>
+    
+
+</body>
+</html>

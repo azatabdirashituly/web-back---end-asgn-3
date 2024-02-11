@@ -1,5 +1,4 @@
 const { User } = require('../database/userSchema') 
-const axios = require('axios');
 const bcrypt = require('bcryptjs');
 
 
@@ -66,36 +65,6 @@ const controller = {
         await res.render('pages/adminPanel', {users: users})
     },
 
-    
-    getMainPage: async (req, res) => {
-        const imageUrl = req.query.imageUrl || '';
-        await res.render('pages/main', { imageUrl: imageUrl })
-    },
-
-    generateImage: async (req, res) => {
-        const { image } = req.body;
-        try {
-            const response = await axios.post(
-              'https://api.openai.com/v1/images/generations',
-              {
-                prompt: image,
-                n: 1,                              
-                size: '512x512',                     
-              },
-              {
-                headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-                },
-              }
-            );
-            res.redirect(`/main?imageUrl=${encodeURIComponent(response.data.data[0].url)}`);
-          } catch (error) {
-            res.status(500).send('An error occurred while generating the image.');
-            console.log(error);
-          }
-    },
-
     getWeatherPage: async (req, res) => {
         await res.render('pages/weather')
     },
@@ -109,8 +78,8 @@ const controller = {
             const response = await axios.get(weatherUrl);
             const weatherData = response.data;
             console.log(weatherData);
-            res.render('pages/weather', { weatherData: weatherData });
-        } catch (error) {
+            res.render('pages/weatherResult', { weatherData: weatherData });
+        } catch (error) {   
             console.error('Error:', error);
             res.status(500).send('Error fetching weather data.');
         }

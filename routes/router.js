@@ -2,18 +2,25 @@ const express = require('express');
 const router = express.Router();
 const { controller } = require('../controller/controllers');
 const { adminController } = require('../controller/adminController');
+const { imageController } = require('../controller/imageController');
+const { weatherController } = require('../controller/weatherController');
 
-// Routes for general users
-router.get('/weatherApp', controller.getWeatherPage);
-router.post('/weather', controller.getWeatherData);
+// User routes
 router.get('/', controller.getRegistrationPage);
 router.post('/getDataFromReg', controller.register);
 router.get('/login', controller.getLoginPage);
 router.post('/getDataFromLog', controller.login);
-router.get('/main', controller.getMainPage);
-router.post('/generateImage', controller.generateImage);
 
-// Routes for admin
+// Image generator routes
+router.get('/main', imageController.getMainPage);
+router.post('/main', imageController.generateImage);
+router.get('/historyImage', imageController.getHistoryPage)
+
+// Weather app routes
+router.get('/weatherApp', weatherController.getWeatherPage);
+router.post('/weather', weatherController.getWeatherData);
+
+// Admin routes
 router.get('/adminPage', controller.getAdminPage);
 router.post('/addUser', adminController.addUser);
 router.post('/deleteUser', adminController.deleteUser);
