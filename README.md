@@ -9,7 +9,7 @@ Since in this project used API from OPENAI, API must be secure, otherwise API wi
 So to run program successfully, you can create a new file called .env, and paste there following variables:
 <img src="./public/images/env-varibales.png"></img>
 
-All these inctructions for keeping the OPENAI API for image generation. If something went wrong, then you should create OPENAI account by following link: https://platform.openai.com/api-keys, and generate API key, then paste it into code.
+All these inctructions for keeping the OPENAI API for image generation. If something went wrong (probably, OPENAI managed to disable the key), then you should create OPENAI account by following link: https://platform.openai.com/api-keys, and generate API key, then paste it into code.
 
 Or in successfill case YOU CAN RUN THE PROGRAM: 
     npm start
