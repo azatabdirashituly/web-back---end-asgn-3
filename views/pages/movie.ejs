@@ -27,7 +27,7 @@
                 <a class="nav-link mx-2"href="/weather">Weather App</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link mx-2 dropdown-toggle" style="color: #fff;" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Searched History
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -37,25 +37,19 @@
                 </ul>
               </li>
             </ul>
+
+            <div class="search-container d-flex ml-auto">
+                <form action="/movie" method="post" class="search-element d-flex align-items-center ml-auto">
+                    <input name="movie" type="text" placeholder="Search Movie Title ..." class="form-control mr-2">
+                    <button type="submit" class="btn btn-outline-light">Search</button>
+                </form>
+            </div>
+
           </div>
         </div>
-
-        <div class="navbar-brand-container">
-            <div class="logo">
-                <div class="container">
-                    <p>Movie<span>Corn.</span></p>
-                </div>
-            </div>
-        </div>
     </nav>
+    
     <div class="wrapper">
-        <div class="search-container">
-            <form action="/movie" method="post" class="search-element">
-                <h3>Search Movie:</h3>
-                <input name="movie" type="text" placeholder="Search Movie Title ...">
-                <button type="submit">Search</button>
-            </form>
-        </div>
     
         <div class="movie-container">
         <% if (movieData && movieData.Search) { %>
