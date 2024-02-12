@@ -59,11 +59,6 @@ body {
     }
 }
 
-.search-element {
-    display: flex;
-    align-items: center;
-}
-
 .search-element input {
     background-color: #fff;
     margin-right: 5px;

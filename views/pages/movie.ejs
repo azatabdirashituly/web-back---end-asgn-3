@@ -37,19 +37,18 @@
                 </ul>
               </li>
             </ul>
-
-            <div class="search-container d-flex ml-auto">
-                <form action="/movie" method="post" class="search-element d-flex align-items-center ml-auto">
-                    <input name="movie" type="text" placeholder="Search Movie Title ..." class="form-control mr-2">
-                    <button type="submit" class="btn btn-outline-light">Search</button>
-                </form>
-            </div>
-
           </div>
         </div>
     </nav>
     
     <div class="wrapper">
+
+        <div class="search-container d-flex justify-content-center">
+            <form action="/movie" method="post" class="search-element d-flex align-items-center">
+                <input name="movie" type="text" placeholder="Search Movie Title ..." class="form-control mr-2">
+                <button type="submit" class="btn btn-outline-light">Search</button>
+            </form>
+        </div>
     
         <div class="movie-container">
         <% if (movieData && movieData.Search) { %>
