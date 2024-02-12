@@ -1,4 +1,3 @@
-- ![#f03c15]qwertyuio `#f03c15`
 - ![#c5f015](https://placehold.co/15x15/c5f015/c5f015.png) `#c5f015`
 - ![#1589F0](https://placehold.co/15x15/1589F0/1589F0.png) `#1589F0`
 
@@ -7,7 +6,7 @@ Name: Website for Image Generation and Searching Movies
 BEFORE RUNNING THE PROGRAM YOU SHOULD INSTALL PACKAGES BY FOLLOWING:
     npm install OR npm i;
 
-<span style="color: #f03c15">Notation</span>
+- ![#f03c15](NOTATION) `#f03c15`
 
 Since in this project used API from OPENAI, API must be secure, otherwise API will be deleted from OPENAI account. 
 So to run program successfully, you can create a new file called .env, and paste there following variables:
