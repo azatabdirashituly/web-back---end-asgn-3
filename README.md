@@ -3,8 +3,11 @@ Name: Website for Image Generation and Searching Movies
 BEFORE RUNNING THE PROGRAM YOU SHOULD INSTALL PACKAGES BY FOLLOWING:
     npm install OR npm i;
 
-<span style="color: red">!!! NOTATION </span>
-Since in this roject used API from OPENAI, API must be secure, so to run program successfully, you can create a new file called .env, and paste there following variables:
+<code style="color : red">Notation</code>
+
+Since in this project used API from OPENAI, API must be secure, otherwise API will be deleted from OPENAI account. 
+So to run program successfully, you can create a new file called .env, and paste there following variables:
+
     MONGO_URI = mongodb+srv://azatabdirashituly:20feb2005@cluster0.sellypx.mongodb.net/
     WEATHER_API_KEY = 0220b2ecd57ffeff232b00b52385a170
     OPENAI_API_KEY = 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
