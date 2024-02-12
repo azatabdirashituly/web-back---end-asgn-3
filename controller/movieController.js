@@ -15,7 +15,6 @@ const movieController = {
         try {
             const response = await fetch(movieURL);
             const movieData = await response.json();
-            console.log(movieData);
             const newMovieData = new MovieData({
                 title: movie,
                 data: movieData,
