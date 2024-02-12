@@ -3,6 +3,8 @@ body {
     background-color: #141d26;
     margin: 0;
     padding: 0;
+    height: 100vh;  
+    width: 100vw;
 }
 
 .navbar {
@@ -11,37 +13,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-}
-
-.navbar-header .navbar-brand {
-    font-size: 24px;
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.navbar-menu ul {
-    list-style-type: none;
-    display: flex;
-}
-
-.navbar-menu ul li {
-    padding: 0 15px;
-}
-
-.navbar-menu ul li .history {
-    margin-top: 10px;
-    text-align: center;
-}
-
-.navbar-menu ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s;
-}
-
-.navbar-menu ul li a:hover {
-    color: #3498db; 
 }
 
 @media screen and (max-width: 768px) {

@@ -1,5 +1,5 @@
 const { User } = require('../database/schemas') 
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 
 const controller = {
