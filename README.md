@@ -44,6 +44,6 @@ PROJECT STRUCTURE/DIRECTORIES =>
 
     .env file => contains API keys
 
-    .gitignore => ignores node_modules folder and package-lock.json file
+    .gitignore => ignores node_modules folder and package-lock.json file.
 
     
