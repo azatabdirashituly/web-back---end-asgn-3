@@ -58,6 +58,9 @@ body {
         padding-left: 0;
     }
 }
+.search-container {
+    padding-bottom: 30px;
+}
 
 .search-element input {
     background-color: #fff;
