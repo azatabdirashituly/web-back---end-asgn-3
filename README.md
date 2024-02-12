@@ -1,5 +1,3 @@
-# web-back---end-asgn-3
-
 Name: Website for Image Generation and Searching Movies
 
 TO RUN PROGRAM: npm start
